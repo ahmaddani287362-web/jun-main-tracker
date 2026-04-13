@@ -19,13 +19,12 @@
             line-height: 1.4;
         }
 
-        /* Apple-style container */
         .container {
             max-width: 1280px;
             margin: 0 auto;
         }
 
-        /* Header premium */
+        /* Header */
         .hero {
             text-align: center;
             margin-bottom: 3rem;
@@ -35,7 +34,7 @@
             font-size: 3.5rem;
             font-weight: 600;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #1d1d1f 0%, #86868b 100%);
+            background: linear-gradient(135deg, #1d1d1f 0%, #007aff 100%);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -48,10 +47,10 @@
             font-weight: 400;
         }
 
-        /* Grid layout premium */
+        /* Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.75rem;
             margin-bottom: 2.5rem;
         }
@@ -61,187 +60,65 @@
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(20px);
             border-radius: 28px;
-            padding: 1.5rem;
+            padding: 1.8rem 1.5rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
             border: 0.5px solid rgba(255, 255, 255, 0.6);
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             cursor: pointer;
+            text-align: center;
         }
 
         .card:hover {
             transform: translateY(-6px);
             background: rgba(255, 255, 255, 0.92);
             box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
-            border-color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Header card dengan icon dan aksi */
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.25rem;
         }
 
         .card-icon {
-            font-size: 2.4rem;
-        }
-
-        .card-badge {
-            background: rgba(0, 122, 255, 0.12);
-            padding: 0.3rem 0.8rem;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #007aff;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
         }
 
         .card-title {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 600;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
             letter-spacing: -0.01em;
         }
 
-        .card-sub {
-            font-size: 0.85rem;
-            color: #86868b;
-            margin-bottom: 1rem;
-        }
-
-        /* Circular progress ala Apple */
-        .progress-ring-container {
-            display: flex;
-            justify-content: center;
-            margin: 1rem 0;
-        }
-
-        .progress-ring {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: conic-gradient(#007aff 0deg var(--percent, 0deg), #e5e5ea var(--percent, 0deg) 360deg);
-            transition: background 0.4s ease;
-        }
-
-        .progress-ring-inner {
-            width: 74px;
-            height: 74px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: #1d1d1f;
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
-        }
-
-        .stats-row {
-            display: flex;
-            justify-content: space-between;
-            margin: 1rem 0 0.8rem;
+        .card-desc {
             font-size: 0.9rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            flex: 1;
-        }
-
-        .stat-number {
-            font-weight: 700;
-            font-size: 1.35rem;
-            color: #1d1d1f;
-        }
-
-        .stat-label {
-            font-size: 0.7rem;
             color: #86868b;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
         }
 
-        .view-link {
+        .card-action {
             display: inline-block;
-            margin-top: 1rem;
             color: #007aff;
-            text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            background: rgba(0, 122, 255, 0.08);
             transition: all 0.2s;
         }
 
-        .view-link:hover {
-            text-decoration: underline;
-            color: #005bbf;
+        .card:hover .card-action {
+            background: rgba(0, 122, 255, 0.15);
         }
 
-        /* Upcoming section premium */
-        .upcoming-section {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            border-radius: 28px;
-            padding: 1.5rem;
-            border: 0.5px solid rgba(255,255,255,0.6);
-            margin-top: 0.5rem;
-        }
-
-        .upcoming-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.9rem 0;
-            border-bottom: 0.5px solid rgba(0,0,0,0.05);
-            transition: background 0.2s;
-            border-radius: 12px;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
-
-        .timeline-item:hover {
-            background: rgba(0,0,0,0.02);
-        }
-
-        .timeline-date {
-            font-weight: 500;
-            min-width: 70px;
-            color: #007aff;
-        }
-
-        .timeline-name {
-            flex: 1;
-            margin-left: 1rem;
-            font-weight: 480;
-        }
-
-        .timeline-category {
-            font-size: 0.8rem;
-            background: rgba(0,0,0,0.04);
-            padding: 0.2rem 0.6rem;
-            border-radius: 30px;
-        }
-
-        .footer-note {
+        /* Footer tip */
+        .tip {
             text-align: center;
-            margin-top: 2.5rem;
-            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 60px;
+            padding: 1rem;
+            font-size: 0.85rem;
             color: #86868b;
-            border-top: 0.5px solid rgba(0,0,0,0.05);
-            padding-top: 1.8rem;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         @media (max-width: 680px) {
@@ -251,17 +128,12 @@
             .hero h1 {
                 font-size: 2.2rem;
             }
-            .grid {
-                gap: 1.2rem;
-            }
             .card-title {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
-        }
-
-        /* subtle loading state */
-        .stat-number.loading {
-            opacity: 0.5;
+            .card-icon {
+                font-size: 2.8rem;
+            }
         }
     </style>
 </head>
@@ -269,281 +141,69 @@
 <div class="container">
     <div class="hero">
         <h1>🎯 Tracker Hub</h1>
-        <p>Entertainment intelligence · by JUN</p>
+        <p>Pusat kendali entertainment Anda</p>
     </div>
 
     <div class="grid" id="trackerGrid">
-        <!-- Semua card akan diisi & diupdate via JS dengan data realtime dari masing-masing tracker -->
+        <!-- Card akan diisi JavaScript -->
     </div>
 
-    <!-- Bagian upcoming premium -->
-    <div class="upcoming-section" id="upcomingBlock">
-        <div class="upcoming-title">
-            <span>📅</span> Upcoming Releases
-        </div>
-        <div id="upcomingList">
-            <div style="text-align: center; padding: 1rem;">Memuat jadwal rilis...</div>
-        </div>
-    </div>
-    <div class="footer-note">
-        ✦ Dashboard Hub premium — tersinkron dengan 5 tracker pribadi ✦
+    <div class="tip">
+        ✨ Klik kartel untuk langsung membuka tracker ✨
     </div>
 </div>
 
 <script>
-    // ======================= KONEKSI KE 5 WEB TRACKER ASLI =======================
-    // URL masing-masing tracker
-    const TRACKERS = {
-        books: {
-            name: 'Books',
-            url: 'https://books-jun.vercel.app',
-            icon: '📚',
-            badge: 'Executive Library',
-            // Estimasi data dari tampilan books-jun (hardcoded sementara, bisa diperbaharui via fetch jika ada API)
-            total: 4,
-            completed: 1,
-            progress: 65,
-            color: '#8e8e93'
+    // Data tracker (tanpa statistik, murni navigasi)
+    const TRACKERS = [
+        {
+            name: "Books",
+            icon: "📚",
+            desc: "Kelola bacaan buku",
+            url: "https://books-jun.vercel.app"
         },
-        cinema: {
-            name: 'Movies & Series',
-            url: 'https://cinema-jun.ahmaddani287362.workers.dev',
-            icon: '🎬',
-            badge: 'Film Diary',
-            total: 0,   // akan diupdate dari DOM scraping (contoh sederhana)
-            completed: 0,
-            progress: 0,
+        {
+            name: "Cinema",
+            icon: "🎬",
+            desc: "Kelola film & series",
+            url: "https://cinema-jun.ahmaddani287362.workers.dev"
         },
-        games: {
-            name: 'Games',
-            url: 'https://games-jun.vercel.app',
-            icon: '🎮',
-            badge: 'Interactive',
-            total: 0,
-            completed: 0,
-            progress: 0,
+        {
+            name: "Games",
+            icon: "🎮",
+            desc: "Kelola koleksi game",
+            url: "https://games-jun.vercel.app"
         },
-        komik: {
-            name: 'Komik',
-            url: 'https://komiku-junn.pages.dev',
-            icon: '🗿',
-            badge: 'Manga · Manhwa',
-            total: 0,
-            completed: 0,
-            progress: 0,
+        {
+            name: "Komik",
+            icon: "🗿",
+            desc: "Kelola manga & manhwa",
+            url: "https://komiku-junn.pages.dev"
         },
-        upcoming: {
-            name: 'Upcoming Tracker',
-            url: 'https://upcoming-jun.vercel.app',
-            icon: '⏰',
-            badge: 'Release Hub',
-            total: 0,
-            completed: 0,
-            progress: 0,
-            isUpcoming: true
+        {
+            name: "Upcoming",
+            icon: "⏰",
+            desc: "Pantau rilis mendatang",
+            url: "https://upcoming-jun.vercel.app"
         }
-    };
+    ];
 
-    // Fungsi untuk mengambil data dari books tracker via fetch (karena sudah ada sample data visible)
-    async function fetchBooksData() {
-        try {
-            const res = await fetch('https://books-jun.vercel.app');
-            const html = await res.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            // parsing sederhana: cari teks "Total Buku"
-            const bodyText = doc.body.innerText;
-            const totalMatch = bodyText.match(/Total Buku\s*(\d+)/i);
-            const completedMatch = bodyText.match(/Selesai\s*(\d+)/i);
-            const progressMatch = bodyText.match(/Rata-rata Progress\s*(\d+)%/i);
-            let total = totalMatch ? parseInt(totalMatch[1]) : 4;
-            let completed = completedMatch ? parseInt(completedMatch[1]) : 1;
-            let progress = progressMatch ? parseInt(progressMatch[1]) : 65;
-            return { total, completed, progress };
-        } catch(e) {
-            console.warn("Books fetch error, pakai data statis", e);
-            return { total: 4, completed: 1, progress: 65 };
-        }
-    }
-
-    // Fetch data dari Cinema (mencari angka dari halaman)
-    async function fetchCinemaData() {
-        try {
-            const res = await fetch('https://cinema-jun.ahmaddani287362.workers.dev');
-            const html = await res.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const text = doc.body.innerText;
-            const totalMatch = text.match(/Total Films?\s*(\d+)/i) || text.match(/(\d+)\s*Total/i);
-            const completedMatch = text.match(/Completed\s*(\d+)/i) || text.match(/✅\s*Completed\s*(\d+)/i);
-            let total = totalMatch ? parseInt(totalMatch[1]) : 12;
-            let completed = completedMatch ? parseInt(completedMatch[1]) : 5;
-            let progress = total > 0 ? Math.round((completed/total)*100) : 42;
-            return { total, completed, progress };
-        } catch(e) {
-            return { total: 11, completed: 5, progress: 45 };
-        }
-    }
-
-    // Fetch Games (karena games-jun display loading, tapi ada info? coba lihat teks)
-    async function fetchGamesData() {
-        try {
-            const res = await fetch('https://games-jun.vercel.app');
-            const html = await res.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const text = doc.body.innerText;
-            // dari tampilan default games, biasanya ada angka di "0" default, coba tebak user punya progress
-            let total = 9;
-            let completed = 6;
-            if (text.match(/Loading games/)) {
-                // fallback
-            }
-            // estimasi dari typical progress
-            return { total: 14, completed: 10, progress: 71 };
-        } catch(e) {
-            return { total: 14, completed: 10, progress: 71 };
-        }
-    }
-
-    // Fetch Komik
-    async function fetchKomikData() {
-        try {
-            const res = await fetch('https://komiku-junn.pages.dev');
-            const html = await res.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const text = doc.body.innerText;
-            let total = 0;
-            let completed = 0;
-            const totalMatch = text.match(/Total\s*(\d+)/i);
-            if (totalMatch) total = parseInt(totalMatch[1]);
-            const readingMatch = text.match(/Reading\s*(\d+)/i);
-            const completedMatch = text.match(/Completed\s*(\d+)/i);
-            if (completedMatch) completed = parseInt(completedMatch[1]);
-            if (total === 0) total = 19;
-            if (completed === 0) completed = 16;
-            let progress = total > 0 ? Math.round((completed/total)*100) : 84;
-            return { total, completed, progress };
-        } catch(e) {
-            return { total: 19, completed: 17, progress: 89 };
-        }
-    }
-
-    // fetch upcoming (kita akan ambil beberapa sample dari upcoming tracker atau jadwal dummy dari web)
-    async function fetchUpcomingEvents() {
-        try {
-            const res = await fetch('https://upcoming-jun.vercel.app');
-            const html = await res.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const body = doc.body.innerText;
-            // cari judul2 yang kelihatan seperti rilis, parsing sederhana
-            const lines = body.split('\n');
-            let events = [];
-            // regex mendeteksi nama + kategori (Movie, Series, Game, etc)
-            for (let line of lines) {
-                if (line.match(/(Movie|Series|Anime|Game|Komik|K-Drama)/i) && line.match(/\d{1,2}\s+\w{3}/i)) {
-                    let clean = line.trim();
-                    events.push(clean);
-                    if(events.length >= 4) break;
-                }
-            }
-            if(events.length === 0) {
-                events = [
-                    "Dune: Prophecy • Series • 17 Nov",
-                    "STALKER 2 • Game • 20 Nov",
-                    "One Piece Chapter 1101 • Komik • 22 Nov",
-                    "Gladiator 2 • Movie • 24 Nov"
-                ];
-            }
-            return events.slice(0,5);
-        } catch(e) {
-            return [
-                "Dune: Prophecy • Series • 17 Nov",
-                "STALKER 2 • Game • 20 Nov",
-                "One Piece Chapter 1101 • Komik • 22 Nov",
-                "Gladiator 2 • Movie • 24 Nov"
-            ];
-        }
-    }
-
-    // Render semua kartu dengan data dinamis
-    async function renderAll() {
-        // Ambil data dari semua tracker paralel
-        const booksData = await fetchBooksData();
-        const cinemaData = await fetchCinemaData();
-        const gamesData = await fetchGamesData();
-        const komikData = await fetchKomikData();
-        const upcomingEvents = await fetchUpcomingEvents();
-
-        const trackersData = {
-            books: { ...TRACKERS.books, ...booksData, url: TRACKERS.books.url },
-            cinema: { name: 'CINÉMA', icon: '🎬', badge: 'Film & Anime', url: TRACKERS.cinema.url, ...cinemaData },
-            games: { name: 'Games', icon: '🎮', badge: 'Interactive', url: TRACKERS.games.url, ...gamesData },
-            komik: { name: 'Komik', icon: '🗿', badge: 'Manga/Manhwa', url: TRACKERS.komik.url, ...komikData },
-            upcomingHub: { name: 'Upcoming', icon: '⏰', badge: 'Release Radar', url: TRACKERS.upcoming.url, total: upcomingEvents.length, completed: 0, progress: 0, isSpecial: true }
-        };
-
-        const grid = document.getElementById('trackerGrid');
-        grid.innerHTML = '';
-
-        for (let [key, t] of Object.entries(trackersData)) {
-            const percent = t.progress || 0;
-            const deg = (percent / 100) * 360;
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.onclick = () => window.open(t.url, '_blank');
-
-            card.innerHTML = `
-                <div class="card-header">
-                    <span class="card-icon">${t.icon}</span>
-                    <span class="card-badge">${t.badge}</span>
-                </div>
-                <div class="card-title">${t.name}</div>
-                <div class="card-sub">Tracker premium</div>
-                <div class="progress-ring-container">
-                    <div class="progress-ring" style="background: conic-gradient(#007aff 0deg ${deg}deg, #e5e5ea ${deg}deg 360deg)">
-                        <div class="progress-ring-inner">${percent}%</div>
-                    </div>
-                </div>
-                <div class="stats-row">
-                    <div class="stat-item"><div class="stat-number">${t.total ?? '—'}</div><div class="stat-label">Total</div></div>
-                    <div class="stat-item"><div class="stat-number">${t.completed ?? '—'}</div><div class="stat-label">Selesai</div></div>
-                    <div class="stat-item"><div class="stat-number">${t.progress ?? 0}%</div><div class="stat-label">Progress</div></div>
-                </div>
-                <span class="view-link">Buka Tracker →</span>
-            `;
-            grid.appendChild(card);
-        }
-
-        // Render upcoming events dengan lebih elegant
-        const upcomingContainer = document.getElementById('upcomingList');
-        if (upcomingEvents.length) {
-            upcomingContainer.innerHTML = upcomingEvents.map(ev => {
-                let categoryIcon = '🎬';
-                if (ev.toLowerCase().includes('game')) categoryIcon = '🎮';
-                else if (ev.toLowerCase().includes('komik')) categoryIcon = '🗿';
-                else if (ev.toLowerCase().includes('book')) categoryIcon = '📚';
-                return `
-                    <div class="timeline-item">
-                        <span class="timeline-date">${extractDate(ev)}</span>
-                        <span class="timeline-name">${ev.replace(/\d{1,2}\s+\w{3}/, '').replace(/•/g, '')}</span>
-                        <span class="timeline-category">${categoryIcon}</span>
-                    </div>
-                `;
-            }).join('');
-        } else {
-            upcomingContainer.innerHTML = '<div style="text-align:center; padding:1rem;">✨ Tidak ada event mendadak ✨</div>';
-        }
-    }
-
-    function extractDate(text) {
-        const match = text.match(/(\d{1,2}\s+\w{3})/);
-        return match ? match[1] : 'TBA';
-    }
-
-    renderAll();
+    const grid = document.getElementById('trackerGrid');
+    
+    TRACKERS.forEach(tracker => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.onclick = () => window.open(tracker.url, '_blank');
+        
+        card.innerHTML = `
+            <div class="card-icon">${tracker.icon}</div>
+            <div class="card-title">${tracker.name}</div>
+            <div class="card-desc">${tracker.desc}</div>
+            <span class="card-action">Buka →</span>
+        `;
+        
+        grid.appendChild(card);
+    });
 </script>
 </body>
 </html>
