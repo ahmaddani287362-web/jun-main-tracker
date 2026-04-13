@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>JUN HUB | Entertainment Tracker</title>
+    
+    <!-- ========== HOME SCREEN IPHONE (APPLE TOUCH ICON) ========== -->
+    <!-- Nama yang muncul di home screen -->
+    <meta name="apple-mobile-web-app-title" content="JUN HUB">
+    
+    <!-- Membuka seperti app native (tanpa address bar Safari) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- Status bar style (gelap transparan) -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Apple Touch Icon untuk berbagai ukuran iPhone/iPad -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/DPqVszqk/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://i.ibb.co/DPqVszqk/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://i.ibb.co/DPqVszqk/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://i.ibb.co/DPqVszqk/apple-touch-icon.png">
+    
+    <!-- Fallback untuk semua ukuran -->
+    <link rel="apple-touch-icon" href="https://i.ibb.co/DPqVszqk/apple-touch-icon.png">
+    
+    <!-- ========== STYLE (MINICRAFT STYLE - ALWAYS DARK) ========== -->
     <style>
         * {
             margin: 0;
@@ -27,7 +48,7 @@
             margin: 0 auto;
         }
 
-        /* Header - Judul */
+        /* Header - Judul di atas */
         .header {
             text-align: center;
             margin-bottom: 3rem;
@@ -49,7 +70,7 @@
             font-weight: 400;
         }
 
-        /* Grid kotak tracker */
+        /* Grid kotak tracker seperti Minecraft inventory slot */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -57,7 +78,7 @@
             margin-bottom: 2rem;
         }
 
-        /* Kotak tracker seperti Minecraft inventory slot */
+        /* Kotak tracker */
         .tracker-card {
             background: #1a1a1a;
             border: 2px solid #333333;
@@ -86,6 +107,15 @@
             font-weight: 600;
             color: #cccccc;
             letter-spacing: 1px;
+            font-family: monospace;
+        }
+
+        /* Footer kecil (opsional) */
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #444444;
             font-family: monospace;
         }
 
@@ -141,10 +171,15 @@
         <div class="grid" id="trackerGrid">
             <!-- Akan diisi JavaScript -->
         </div>
+
+        <!-- Footer kecil (bisa dihapus jika tidak mau) -->
+        <div class="footer">
+            JUN HUB © 2026
+        </div>
     </div>
 
     <script>
-        // Data tracker (tanpa icon, tanpa tombol, hanya nama)
+        // Data tracker (tanpa icon, tanpa tombol "Buka →", hanya nama)
         const TRACKERS = [
             { name: "BOOKS", url: "https://books-jun.vercel.app" },
             { name: "CINEMA", url: "https://cinema-jun.ahmaddani287362.workers.dev" },
