@@ -12,11 +12,13 @@
         }
 
         :root {
-            /* Light mode (default) */
+            /* Light mode */
             --bg-primary: #f5f5f7;
             --bg-secondary: #ffffff;
+            --sidebar-bg: rgba(255, 255, 255, 0.9);
             --text-primary: #1d1d1f;
             --text-secondary: #86868b;
+            --text-tertiary: #6c6c70;
             --card-bg: rgba(255, 255, 255, 0.75);
             --card-bg-hover: rgba(255, 255, 255, 0.92);
             --card-border: rgba(255, 255, 255, 0.6);
@@ -24,117 +26,233 @@
             --accent-light: rgba(0, 122, 255, 0.12);
             --accent-hover: rgba(0, 122, 255, 0.15);
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
-            --shadow-hover: 0 24px 48px rgba(0, 0, 0, 0.08);
-            --tip-bg: rgba(255, 255, 255, 0.5);
-            --gradient: linear-gradient(135deg, #1d1d1f 0%, #007aff 100%);
+            --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.08);
+            --border-color: rgba(0, 0, 0, 0.05);
+            --active-bg: rgba(0, 122, 255, 0.1);
         }
 
         /* Dark mode */
         body.dark {
             --bg-primary: #000000;
             --bg-secondary: #1c1c1e;
+            --sidebar-bg: rgba(28, 28, 30, 0.95);
             --text-primary: #ffffff;
             --text-secondary: #8e8e93;
+            --text-tertiary: #636366;
             --card-bg: rgba(28, 28, 30, 0.8);
             --card-bg-hover: rgba(28, 28, 30, 0.95);
-            --card-border: rgba(255, 255, 255, 0.1);
+            --card-border: rgba(255, 255, 255, 0.08);
             --accent: #0a84ff;
             --accent-light: rgba(10, 132, 255, 0.15);
             --accent-hover: rgba(10, 132, 255, 0.2);
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            --shadow-hover: 0 24px 48px rgba(0, 0, 0, 0.3);
-            --tip-bg: rgba(28, 28, 30, 0.6);
-            --gradient: linear-gradient(135deg, #ffffff 0%, #0a84ff 100%);
+            --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.3);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --active-bg: rgba(10, 132, 255, 0.15);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', system-ui, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
-            padding: 2rem 1.5rem;
-            line-height: 1.4;
             transition: background 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* Layout utama */
+        .app {
+            display: flex;
             min-height: 100vh;
         }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        /* Header dengan dark mode toggle */
-        .hero {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: var(--card-bg);
+        /* ========== SIDEBAR ========== */
+        .sidebar {
+            width: 280px;
+            background: var(--sidebar-bg);
             backdrop-filter: blur(20px);
-            border: 0.5px solid var(--card-border);
-            border-radius: 40px;
-            padding: 0.6rem 1rem;
-            cursor: pointer;
-            font-size: 1.2rem;
+            border-right: 0.5px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
             transition: all 0.3s ease;
-            z-index: 1000;
-            box-shadow: var(--shadow);
+            z-index: 100;
         }
 
-        .theme-toggle:hover {
-            transform: scale(1.05);
-            background: var(--card-bg-hover);
+        /* Logo area */
+        .logo-area {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 0.5px solid var(--border-color);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.8rem;
             font-weight: 600;
             letter-spacing: -0.02em;
-            background: var(--gradient);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            margin-bottom: 0.5rem;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .logo-icon {
+            font-size: 2rem;
+            background: none;
+            color: var(--accent);
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+        }
+
+        .tagline {
+            font-size: 0.75rem;
             color: var(--text-secondary);
-            font-weight: 400;
+            margin-top: 0.5rem;
         }
 
-        /* Grid premium */
+        /* Navigasi sidebar */
+        .nav-menu {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .nav-item {
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.85rem 1rem;
+            border-radius: 14px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            background: var(--accent-light);
+        }
+
+        .nav-link.active {
+            background: var(--active-bg);
+            color: var(--accent);
+        }
+
+        .nav-link.active .nav-icon {
+            transform: scale(1.05);
+        }
+
+        .nav-icon {
+            font-size: 1.4rem;
+            width: 32px;
+            transition: transform 0.2s;
+        }
+
+        .nav-text {
+            font-size: 0.95rem;
+        }
+
+        /* Sidebar footer */
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 0.5px solid var(--border-color);
+        }
+
+        .theme-toggle-sidebar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            background: var(--card-bg);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle-sidebar:hover {
+            background: var(--card-bg-hover);
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 2rem 2rem 2rem 2rem;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Header main */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .greeting h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .greeting p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile menu toggle button */
+        .mobile-menu-btn {
+            display: none;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 0.5px solid var(--card-border);
+            border-radius: 12px;
+            padding: 0.6rem 1rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+
+        /* Grid card premium */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.75rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         /* Apple glassmorphism card */
         .card {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
-            border-radius: 28px;
-            padding: 1.8rem 1.5rem;
+            border-radius: 24px;
+            padding: 1.8rem;
             box-shadow: var(--shadow);
             border: 0.5px solid var(--card-border);
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             cursor: pointer;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             background: var(--card-bg-hover);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-lg);
         }
 
-        /* Efek glow saat hover (premium) */
         .card::before {
             content: '';
             position: absolute;
@@ -142,51 +260,49 @@
             left: 0;
             right: 0;
             bottom: 0;
-            border-radius: 28px;
-            background: radial-gradient(circle at 50% 0%, var(--accent), transparent 70%);
+            border-radius: 24px;
+            background: radial-gradient(circle at 30% 0%, var(--accent), transparent 70%);
             opacity: 0;
             transition: opacity 0.4s ease;
             pointer-events: none;
         }
 
         .card:hover::before {
-            opacity: 0.08;
-        }
-
-        .card {
-            position: relative;
-            overflow: hidden;
+            opacity: 0.06;
         }
 
         .card-icon {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             display: inline-block;
             transition: transform 0.3s ease;
         }
 
         .card:hover .card-icon {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .card-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
             letter-spacing: -0.01em;
         }
 
         .card-desc {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
+            line-height: 1.4;
         }
 
         .card-action {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--accent);
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 40px;
@@ -196,28 +312,42 @@
 
         .card:hover .card-action {
             background: var(--accent-hover);
-            transform: translateX(4px);
+            gap: 0.75rem;
         }
 
-        /* Footer tip premium */
-        .tip {
-            text-align: center;
-            background: var(--tip-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 60px;
-            padding: 1rem;
+        /* Stats bar */
+        .stats-bar {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            border: 0.5px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .stats-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
             font-size: 0.85rem;
             color: var(--text-secondary);
-            max-width: 500px;
-            margin: 0 auto;
-            border: 0.5px solid var(--card-border);
         }
 
-        /* Animasi fade in untuk card */
+        .stats-number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* Animasi fade in */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -226,7 +356,7 @@
         }
 
         .card {
-            animation: fadeInUp 0.6s ease forwards;
+            animation: fadeInUp 0.5s ease forwards;
             opacity: 0;
         }
 
@@ -236,127 +366,188 @@
         .card:nth-child(4) { animation-delay: 0.2s; }
         .card:nth-child(5) { animation-delay: 0.25s; }
 
-        /* Responsive mobile */
-        @media (max-width: 680px) {
-            body {
-                padding: 1rem;
-            }
-            
-            .theme-toggle {
-                top: 1rem;
-                right: 1rem;
-                padding: 0.5rem 0.8rem;
-                font-size: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .card-title {
-                font-size: 1.4rem;
-            }
-            
-            .card-icon {
-                font-size: 2.8rem;
-            }
-            
-            .grid {
-                gap: 1.2rem;
-            }
-            
-            .card {
-                padding: 1.5rem 1.2rem;
-            }
-        }
-
-        /* Untuk layar sangat kecil */
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scrollbar premium (webkit) */
+        /* Scrollbar premium */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
-        
         ::-webkit-scrollbar-track {
             background: var(--bg-primary);
         }
-        
         ::-webkit-scrollbar-thumb {
             background: var(--text-secondary);
             border-radius: 10px;
         }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: 280px;
+                z-index: 1000;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .greeting h2 {
+                font-size: 1.4rem;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
+            }
+            .main-content {
+                margin-left: 240px;
+            }
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Overlay untuk mobile */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </div>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo-area">
+                <div class="logo">
+                    <span class="logo-icon">🎯</span>
+                    <span class="logo-text">Tracker Hub JUN</span>
+                </div>
+                <div class="tagline">Pusat kendali entertainment JUN</div>
+            </div>
 
-    <div class="container">
-        <div class="hero">
-            <h1>🎯 Tracker Hub JUN</h1>
-            <p>Pusat kendali entertainment JUN</p>
-        </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link active" data-tracker="all">
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-tracker="books">
+                        <span class="nav-icon">📚</span>
+                        <span class="nav-text">Books</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-tracker="cinema">
+                        <span class="nav-icon">🎬</span>
+                        <span class="nav-text">Cinema</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-tracker="games">
+                        <span class="nav-icon">🎮</span>
+                        <span class="nav-text">Games</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-tracker="komik">
+                        <span class="nav-icon">🗿</span>
+                        <span class="nav-text">Komik</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-tracker="upcoming">
+                        <span class="nav-icon">⏰</span>
+                        <span class="nav-text">Upcoming</span>
+                    </a>
+                </li>
+            </ul>
 
-        <div class="grid" id="trackerGrid">
-            <!-- Card akan diisi JavaScript -->
-        </div>
+            <div class="sidebar-footer">
+                <div class="theme-toggle-sidebar" id="themeToggleSidebar">
+                    <span>🌙 Dark Mode</span>
+                    <span id="themeIcon">🌙</span>
+                </div>
+            </div>
+        </aside>
 
-        <div class="tip">
-            ✨ Klik kartel untuk langsung membuka tracker premium ✨
-        </div>
+        <!-- Overlay untuk mobile -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="main-header">
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span>☰</span>
+                    <span>Menu</span>
+                </div>
+                <div class="greeting">
+                    <h2 id="greetingText">Dashboard</h2>
+                    <p id="greetingSub">Kelola semua tracker dalam satu tempat</p>
+                </div>
+            </div>
+
+            <div class="grid" id="trackerGrid">
+                <!-- Card akan diisi JavaScript -->
+            </div>
+
+            <div class="stats-bar">
+                <div class="stats-item">
+                    <span class="stats-number" id="totalTrackers">5</span>
+                    <span>Total Trackers</span>
+                </div>
+                <div class="stats-item">
+                    <span class="stats-number" id="activeTrackers">5</span>
+                    <span>Active</span>
+                </div>
+                <div class="stats-item">
+                    <span>✨ Terakhir diperbarui: <span id="lastUpdated">Hari ini</span></span>
+                </div>
+            </div>
+        </main>
     </div>
 
     <script>
-        // Data tracker (murni navigasi)
+        // Data tracker
         const TRACKERS = [
-            {
-                name: "Books",
-                icon: "📚",
-                desc: "Kelola bacaan buku",
-                url: "https://books-jun.vercel.app"
-            },
-            {
-                name: "Cinema",
-                icon: "🎬",
-                desc: "Kelola film & series",
-                url: "https://cinema-jun.ahmaddani287362.workers.dev"
-            },
-            {
-                name: "Games",
-                icon: "🎮",
-                desc: "Kelola koleksi game",
-                url: "https://games-jun.vercel.app"
-            },
-            {
-                name: "Komik",
-                icon: "🗿",
-                desc: "Kelola manga & manhwa",
-                url: "https://komiku-junn.pages.dev"
-            },
-            {
-                name: "Upcoming",
-                icon: "⏰",
-                desc: "Pantau rilis mendatang",
-                url: "https://upcoming-jun.vercel.app"
-            }
+            { id: "books", name: "Books", icon: "📚", desc: "Kelola bacaan buku favoritmu", url: "https://books-jun.vercel.app", color: "#007aff" },
+            { id: "cinema", name: "Cinema", icon: "🎬", desc: "Kelola film & series", url: "https://cinema-jun.ahmaddani287362.workers.dev", color: "#ff375f" },
+            { id: "games", name: "Games", icon: "🎮", desc: "Kelola koleksi game", url: "https://games-jun.vercel.app", color: "#30d158" },
+            { id: "komik", name: "Komik", icon: "🗿", desc: "Kelola manga & manhwa", url: "https://komiku-junn.pages.dev", color: "#bf5af2" },
+            { id: "upcoming", name: "Upcoming", icon: "⏰", desc: "Pantau rilis mendatang", url: "https://upcoming-jun.vercel.app", color: "#ff9f0a" }
         ];
 
         // Dark mode management
@@ -366,68 +557,170 @@
             
             if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
                 document.body.classList.add('dark');
-                updateToggleIcon(true);
+                updateThemeUI(true);
             } else {
                 document.body.classList.remove('dark');
-                updateToggleIcon(false);
+                updateThemeUI(false);
             }
         }
 
-        function updateToggleIcon(isDark) {
-            const toggle = document.getElementById('themeToggle');
-            if (toggle) {
-                toggle.textContent = isDark ? '☀️' : '🌙';
+        function updateThemeUI(isDark) {
+            const themeIcon = document.getElementById('themeIcon');
+            const themeBtn = document.getElementById('themeToggleSidebar');
+            if (themeIcon) {
+                themeIcon.textContent = isDark ? '☀️' : '🌙';
+            }
+            if (themeBtn) {
+                const span = themeBtn.querySelector('span:first-child');
+                if (span) span.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
             }
         }
 
         function toggleDarkMode() {
             const isDark = document.body.classList.toggle('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateToggleIcon(isDark);
+            updateThemeUI(isDark);
         }
 
         // Render cards
-        function renderCards() {
+        function renderCards(filterId = null) {
             const grid = document.getElementById('trackerGrid');
             if (!grid) return;
             
             grid.innerHTML = '';
             
-            TRACKERS.forEach(tracker => {
+            let filteredTrackers = TRACKERS;
+            if (filterId && filterId !== 'all') {
+                filteredTrackers = TRACKERS.filter(t => t.id === filterId);
+            }
+            
+            filteredTrackers.forEach((tracker, index) => {
                 const card = document.createElement('div');
                 card.className = 'card';
+                card.style.animationDelay = `${index * 0.05}s`;
                 card.onclick = () => window.open(tracker.url, '_blank');
                 
                 card.innerHTML = `
                     <div class="card-icon">${tracker.icon}</div>
                     <div class="card-title">${tracker.name}</div>
                     <div class="card-desc">${tracker.desc}</div>
-                    <span class="card-action">Buka →</span>
+                    <span class="card-action">Buka Tracker →</span>
                 `;
                 
                 grid.appendChild(card);
             });
         }
 
-        // Event listener
-        document.getElementById('themeToggle')?.addEventListener('click', toggleDarkMode);
-        
-        // Initialize
-        initDarkMode();
-        renderCards();
-        
-        // Optional: Watch for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
-                if (e.matches) {
-                    document.body.classList.add('dark');
-                    updateToggleIcon(true);
-                } else {
-                    document.body.classList.remove('dark');
-                    updateToggleIcon(false);
-                }
+        // Update greeting based on time
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greetingEl = document.getElementById('greetingText');
+            const subEl = document.getElementById('greetingSub');
+            
+            if (greetingEl) {
+                if (hour < 12) greetingEl.textContent = 'Selamat Pagi';
+                else if (hour < 18) greetingEl.textContent = 'Selamat Siang';
+                else greetingEl.textContent = 'Selamat Malam';
             }
-        });
+            if (subEl) {
+                subEl.textContent = 'Kelola semua tracker dalam satu tempat';
+            }
+        }
+
+        // Update last updated
+        function updateLastUpdated() {
+            const now = new Date();
+            const formatted = now.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+            const lastUpdatedEl = document.getElementById('lastUpdated');
+            if (lastUpdatedEl) {
+                lastUpdatedEl.textContent = formatted;
+            }
+        }
+
+        // Sidebar navigation
+        function initNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const trackerId = link.getAttribute('data-tracker');
+                    
+                    // Update active class
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    
+                    // Update greeting
+                    const greetingEl = document.getElementById('greetingText');
+                    const subEl = document.getElementById('greetingSub');
+                    
+                    if (trackerId === 'all') {
+                        if (greetingEl) greetingEl.textContent = 'Dashboard';
+                        if (subEl) subEl.textContent = 'Kelola semua tracker dalam satu tempat';
+                        renderCards('all');
+                    } else {
+                        const tracker = TRACKERS.find(t => t.id === trackerId);
+                        if (tracker) {
+                            if (greetingEl) greetingEl.textContent = tracker.name;
+                            if (subEl) subEl.textContent = tracker.desc;
+                            renderCards(trackerId);
+                        }
+                    }
+                    
+                    // Close sidebar on mobile after click
+                    if (window.innerWidth <= 768) {
+                        closeSidebar();
+                    }
+                });
+            });
+        }
+
+        // Mobile sidebar functions
+        function openSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar) sidebar.classList.add('open');
+            if (overlay) overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar) sidebar.classList.remove('open');
+            if (overlay) overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function initMobileMenu() {
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            if (menuBtn) {
+                menuBtn.addEventListener('click', openSidebar);
+            }
+            if (overlay) {
+                overlay.addEventListener('click', closeSidebar);
+            }
+        }
+
+        // Initialize everything
+        function init() {
+            initDarkMode();
+            updateGreeting();
+            updateLastUpdated();
+            renderCards('all');
+            initNavigation();
+            initMobileMenu();
+            
+            // Theme toggle
+            const themeBtn = document.getElementById('themeToggleSidebar');
+            if (themeBtn) {
+                themeBtn.addEventListener('click', toggleDarkMode);
+            }
+        }
+        
+        init();
     </script>
 </body>
 </html>
